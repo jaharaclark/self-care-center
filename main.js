@@ -1,5 +1,9 @@
 // query selectors are going to go here:
-
+var receiveMessageBtn = document.querySelector("#receive-message-button");
+var meditationLogo = document.querySelector("#meditation-logo");
+var affirmationRadioBtn = document.querySelector("#affirmation");
+var mantraRadioBtn = document.querySelector("#mantra");
+var returnedMotivationalMessage = document.querySelector("h3");
 
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -35,6 +39,23 @@ var mantras = [
   "I am the sky, the rest is weather.",
 ];
 
-//event listenerse go here:
+//event listeners go here:
+receiveMessageBtn.addEventListener("click", returnMessage)
 
 //functions and event handlers are going to go here:
+function getRandomIndex(array) {
+  return array[Math.floor(Math.random() * array.length)]
+};
+
+function returnMessage() {
+  event.preventDefault();
+  if (affirmationRadioBtn.checked === true) {
+    returnedMotivationalMessage.innerHTML = (getRandomIndex(affirmations))
+  }
+
+  if (mantraRadioBtn.checked === true) {
+    returnedMotivationalMessage.innerHTML = (getRandomIndex(affirmations))
+  }
+
+  meditationLogo.classList.add("hidden");
+}
