@@ -1,9 +1,10 @@
 // query selectors are going to go here:
-var receiveMessageBtn = document.querySelector("#receive-message-button");
-var meditationLogo = document.querySelector("#meditation-logo");
 var affirmationRadioBtn = document.querySelector("#affirmation");
+var clearMessageBtn = document.querySelector("#clear-my-message");
 var mantraRadioBtn = document.querySelector("#mantra");
+var receiveMessageBtn = document.querySelector("#receive-message-button");
 var returnedMotivationalMessage = document.querySelector("h3");
+var meditationLogo = document.querySelector("#meditation-logo");
 
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -40,7 +41,9 @@ var mantras = [
 ];
 
 //event listeners go here:
-receiveMessageBtn.addEventListener("click", returnMessage)
+receiveMessageBtn.addEventListener("click", returnMessage);
+clearMessageBtn.addEventListener("click", clearMessage);
+window.addEventListener("load", hideClearBtn);
 
 //functions and event handlers are going to go here:
 function getRandomIndex(array) {
@@ -58,4 +61,18 @@ function returnMessage() {
   }
 
   meditationLogo.classList.add("hidden");
+  returnedMotivationalMessage.classList.remove("hidden");
+  clearMessageBtn.classList.remove("hidden");
+};
+
+
+function clearMessage() {
+  event.preventDefault();
+  meditationLogo.classList.remove("hidden");
+  returnedMotivationalMessage.classList.add("hidden");
+  clearMessageBtn.classList.add("hidden");
+}
+
+function hideClearBtn() {
+  clearMessageBtn.classList.add("hidden");
 }
