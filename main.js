@@ -43,7 +43,7 @@ var mantras = [
 //event listeners go here:
 receiveMessageBtn.addEventListener("click", returnMessage);
 clearMessageBtn.addEventListener("click", clearMessage);
-window.addEventListener("load", hideClearBtn);
+
 
 //functions and event handlers are going to go here:
 function getRandomIndex(array) {
@@ -52,14 +52,19 @@ function getRandomIndex(array) {
 
 function returnMessage() {
   event.preventDefault();
+
+  if (affirmationRadioBtn.checked === false && mantraRadioBtn.checked === false) {
+    window.alert("Please select a message type.");
+    return
+  }
+
   if (affirmationRadioBtn.checked === true) {
     returnedMotivationalMessage.innerHTML = (getRandomIndex(affirmations))
   }
 
   if (mantraRadioBtn.checked === true) {
-    returnedMotivationalMessage.innerHTML = (getRandomIndex(affirmations))
+    returnedMotivationalMessage.innerHTML = (getRandomIndex(mantras))
   }
-
   meditationLogo.classList.add("hidden");
   returnedMotivationalMessage.classList.remove("hidden");
   clearMessageBtn.classList.remove("hidden");
@@ -71,8 +76,6 @@ function clearMessage() {
   meditationLogo.classList.remove("hidden");
   returnedMotivationalMessage.classList.add("hidden");
   clearMessageBtn.classList.add("hidden");
-}
-
-function hideClearBtn() {
-  clearMessageBtn.classList.add("hidden");
+  affirmationRadioBtn.checked = false;
+  mantraRadioBtn.checked = false;
 }

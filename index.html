@@ -5,13 +5,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <main>
+    <main id="main">
       <section class="title-section">
         <h1><span>&#10024;</span> Self Care Center <span>&#10024;</span></h1>
+        <h2>Which type of message?</h2>
       </section>
       <section class="input-section">
-        <h2>Which type of message?</h2>
-        <form>
+        <form id="box-for-input">
           <section class= "user-box" id="radio-box">
             <div>
             <input type="radio" id="affirmation" name="selector-button">
@@ -25,12 +25,12 @@
         <button class="message-buttons" id="receive-message-button">Receive Message</button>
         </form>
       </section>
-        <form>
+        <form id="box-for-return">
           <div class="user-box" id="logo-box">
             <img id="meditation-logo" src="assets/meditate.svg" alt="meditation logo">
-          <h3 id="returned-motivational-message"></h3>
+          <h3 id="returned-motivational-message hidden"></h3>
+          <button class="message-buttons hidden" id="clear-my-message"> Clear My Message</button>
         </div>
-        <button class="message-buttons" id="clear-my-message"> Clear My Message</button>
         </form>
       </main>
     <script type="text/javascript" src="main.js"></script>
