@@ -40,6 +40,14 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
+.text-fade{
+  animation: textFade ease 2s;
+}
+
+@keyframes textFade {
+  0% {opacity: 0;}
+  100% {opacity: 100;}
+}
 
 .hidden {
   display: none !important;
@@ -81,7 +89,6 @@ html {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* margin-bottom: 25px; */
 }
 
 
@@ -107,7 +114,6 @@ html {
 
 #meditation-logo {
   max-width: 10%;
-  /* margin-top: 45px; */
 }
 
 
