@@ -46,9 +46,33 @@ clearMessageBtn.addEventListener("click", clearMessage);
 
 
 //functions and event handlers are going to go here:
+
+function clearMessage() {
+  event.preventDefault();
+  meditationLogo.classList.remove("hidden");
+  returnedMotivationalMessage.classList.add("hidden");
+  clearMessageBtn.classList.add("hidden");
+  affirmationRadioBtn.checked = false;
+  mantraRadioBtn.checked = false;
+  fadeTextIn(meditationLogo);
+}
+
+
+function fadeTextIn(element) {
+  element.classList.add("text-fade");
+  setTimeout(fadeTextOut, 1500, element);
+}
+
+
+function fadeTextOut(element) {
+  element.classList.remove("text-fade")
+}
+
+
 function getRandomIndex(array) {
   return array[Math.floor(Math.random() * array.length)]
 };
+
 
 function returnMessage() {
   event.preventDefault();
@@ -68,14 +92,6 @@ function returnMessage() {
   meditationLogo.classList.add("hidden");
   returnedMotivationalMessage.classList.remove("hidden");
   clearMessageBtn.classList.remove("hidden");
+  fadeTextIn(returnedMotivationalMessage);
+  fadeTextIn(clearMessageBtn);
 };
-
-
-function clearMessage() {
-  event.preventDefault();
-  meditationLogo.classList.remove("hidden");
-  returnedMotivationalMessage.classList.add("hidden");
-  clearMessageBtn.classList.add("hidden");
-  affirmationRadioBtn.checked = false;
-  mantraRadioBtn.checked = false;
-}
